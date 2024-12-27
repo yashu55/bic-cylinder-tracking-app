@@ -14,12 +14,12 @@ npm run build:local
 
 ```
 cd ../backend
-./gradlew bootJar -Dspring.profiles.active=local
+../gradlew clean bootJar -Dspring.profiles.active=local
 ```
 ## Run the JAR:
 
 ```
-java -jar build/libs/backend-1.0.0.jar --spring.profiles.active=local
+java -jar build/libs/backend.jar --spring.profiles.active=local
 ```
 # Production Build:
 
@@ -34,10 +34,10 @@ npm run build:prod
 
 ```
 cd ../backend
-./gradlew buildForProd -Dspring.profiles.active=prod
+../gradlew clean buildForProd -Dspring.profiles.active=prod
 ```
 ## Run the JAR:
 
 ```
-java -jar build/libs/backend-1.0.0.jar --spring.profiles.active=prod
+java -jar build/libs/backend.jar --spring.profiles.active=prod
 ```

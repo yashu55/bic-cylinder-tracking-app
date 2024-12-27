@@ -7,20 +7,23 @@ plugins {
 group = 'com.bic'
 version = '0.0.1-SNAPSHOT'
 
+bootJar {
+    archiveFileName = "backend.jar"
+}
+
 bootRun {
     systemProperties = System.getProperties()
     args = ["--spring.profiles.active=${System.properties['spring.profiles.active'] ?: 'local'}"]
 }
 
-task buildForProd(type: BootJar) {
-    dependsOn bootJar
+task buildForProd {
+    group = 'build'
+    description = 'Build the application with production profile'
     doFirst {
         println "Building for production profile..."
     }
-    finalizedBy tasks.bootJar
+    finalizedBy 'bootJar' // Ensures bootJar runs after this task
 }
-
-
 
 java {
 	toolchain {
@@ -39,7 +42,6 @@ repositories {
 }
 
 dependencies {
-
 	// SPRING DEFAULT
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
@@ -66,7 +68,6 @@ dependencies {
 
 	// Email
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
-
 
 	// TEST
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
