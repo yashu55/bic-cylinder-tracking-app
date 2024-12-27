@@ -1,0 +1,2 @@
+rootProject.name = 'bic-cylinder-tracking-app'
+include 'frontend', 'backend'
