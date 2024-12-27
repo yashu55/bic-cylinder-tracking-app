@@ -32,6 +32,18 @@
             "scripts": []
           },
           "configurations": {
+            "local": {
+              "optimization": false,
+              "outputPath": "../backend/src/main/resources/static",
+              "sourceMap": true,
+              "baseHref": "/",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.ts"
+                }
+              ]
+            },
             "production": {
               "budgets": [
                 {
@@ -45,12 +57,17 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
+              "outputHashing": "all",
+              "optimization": true,
+              "outputPath": "../backend/src/main/resources/static",
+              "sourceMap": false,
+              "baseHref": "/",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"

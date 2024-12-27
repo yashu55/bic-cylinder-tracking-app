@@ -7,6 +7,21 @@ plugins {
 group = 'com.bic'
 version = '0.0.1-SNAPSHOT'
 
+bootRun {
+    systemProperties = System.getProperties()
+    args = ["--spring.profiles.active=${System.properties['spring.profiles.active'] ?: 'local'}"]
+}
+
+task buildForProd(type: BootJar) {
+    dependsOn bootJar
+    doFirst {
+        println "Building for production profile..."
+    }
+    finalizedBy tasks.bootJar
+}
+
+
+
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(17)
