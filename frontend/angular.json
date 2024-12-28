@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "../backend/src/main/resources/static",
+            "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -34,7 +34,7 @@
           "configurations": {
             "local": {
               "optimization": false,
-              "outputPath": "../backend/src/main/resources/static",
+              "outputPath": "dist",
               "sourceMap": true,
               "baseHref": "/",
               "fileReplacements": [
@@ -59,7 +59,7 @@
               ],
               "outputHashing": "all",
               "optimization": true,
-              "outputPath": "../backend/src/main/resources/static",
+              "outputPath": "dist",
               "sourceMap": false,
               "baseHref": "/",
               "fileReplacements": [
@@ -78,8 +78,8 @@
             "production": {
               "buildTarget": "frontend:build:production"
             },
-            "development": {
-              "buildTarget": "frontend:build:development"
+            "local": {
+              "buildTarget": "frontend:build:local"
             }
           },
           "defaultConfiguration": "development"
